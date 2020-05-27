@@ -1,0 +1,125 @@
+/* 
+CSS tweaks for ProtonMail v4.0.0-beta13
+*/
+
+body, .bodyDecrypted.plain{
+	font-family: Arial, Helvetica, sans-serif; /* i am used to it (for now) */
+}
+*{
+	scrollbar-width: auto; /* normal width scrollbar */
+}
+
+
+/* 
+Header (search area...) 
+*/
+.header{
+	height: 6rem; /* reduce header height (search area) */
+}
+
+
+/* 
+Navigation (left area) 
+*/
+.navigation__link{
+	padding: 0.7rem 1em 0.7rem 2rem; /* less spacing between nav menu (folders) items */
+	font-family: Roboto, -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif; /* i am used to it (for now) */
+}
+.sidebar{
+	width: var(--width-sidebar,21rem); /* increase sidebar width because i get wordwrap with my language */
+}
+
+
+/* 
+List view
+*/
+.toolbar{
+	height: 4.5rem; /* reduce top toolbar (dark bluish-gray) height */
+}
+
+.selectBoxElement-container{ /* put the Star on column 2 */
+	order: -2;
+	margin-right: 0.5em;
+}
+.item-container-row div:nth-of-type(3){
+	order:-1;
+	margin-right: 10px;
+}
+
+.starbutton{
+	opacity: 0.4;
+}
+
+.selectBoxElement-container .item-icon{ /* reduce round icon size (column 1) */
+	width: 2.2rem;
+	height: 2.2rem;
+}
+.selectBoxElement-container .item-abbr{
+	font-size: 1rem;
+	color:#555;
+}
+
+.item-container-row > span:nth-of-type(1){ /* reduce mail size font */
+	color:#999;
+	font-size: 0.8em;
+}
+
+
+/* 
+Message view
+*/
+#conversation-view{
+	padding-top: 20px; /* reduce paddind above title */
+}
+
+.message-container{
+	border:none; /* remove border around message */
+}
+
+.message-header{
+	padding-bottom: 0; /* reduce padding in msg header */
+}
+.message-contact-from{ /* remove "From:" prefix  */
+	display:none;
+}
+
+.filterButton-container, /* remove buttons already in the top bar (i don't use column view) */
+.folderSelectorDropdown-container,
+.labelSelectorDropdown-container
+{
+	display:none;
+}
+.dropdown-actions-nowrap-forward{
+	margin-left: 10px;
+}
+
+.recipients-summary{
+	font-size:0.85em;
+	color: #555;
+}
+
+.toggleDetails{ /* smaller Show details link */
+	font-size: 0.8em;
+	color: #777;
+}
+
+.messageExtra-container{
+	margin-top: 0;
+}
+
+#conversation-view .message .frame{
+	padding-left: 0;
+	padding-right: 0;
+}
+.message-body-container a{
+	color: #15c; /* better contrast for links */
+}
+
+
+/* 
+Protonmail strip classes from "<p>" thus we can't fix formating from MS Outlook 
+idealy we would add ".MsoNormal{ margin: 0 }"
+*/
+.message-body-container  p{ 
+	margin: 0; /* will fix message from Outlook but may break some others messages (using non-styled "<p>")
+}
