@@ -2,11 +2,19 @@
 CSS tweaks for ProtonMail v4.0.0-beta13
 */
 
-body, .bodyDecrypted.plain{
-	font-family: Arial, Helvetica, sans-serif; /* i am used to it (for now) */
-}
 *{
 	scrollbar-width: auto; /* normal width scrollbar */
+}
+
+
+/* 
+Fonts (use fonts scheme from Gmail (if you are used to it)
+*/
+body, .bodyDecrypted.plain{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.navigation__link{
+	font-family: Roboto, -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 }
 
 
@@ -22,11 +30,10 @@ Header (search area...)
 Navigation (left area) 
 */
 .navigation__link{
-	padding: 0.7rem 1em 0.7rem 2rem; /* less spacing between nav menu (folders) items */
-	font-family: Roboto, -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif; /* i am used to it (for now) */
+	padding: 0.7rem 1em 0.7rem 2rem; /* less vertical spacing between nav menu (folders) items */
 }
 .sidebar{
-	width: var(--width-sidebar,21rem); /* increase sidebar width because i get wordwrap with my language */
+	width: 21rem; /* increase sidebar width because i get wordwrap in my language */
 }
 
 
@@ -37,7 +44,7 @@ List view
 	height: 4.5rem; /* reduce top toolbar (dark bluish-gray) height */
 }
 
-.selectBoxElement-container{ /* put the Star on column 2 */
+.selectBoxElement-container{ /* put the Star icon on column 2 */
 	order: -2;
 	margin-right: 0.5em;
 }
@@ -46,7 +53,7 @@ List view
 	margin-right: 10px;
 }
 
-.starbutton{
+.starbutton{ /* make Star icon a bit lighter */
 	opacity: 0.4;
 }
 
@@ -59,7 +66,7 @@ List view
 	color:#555;
 }
 
-.item-container-row > span:nth-of-type(1){ /* reduce mail size font */
+.item-container-row > span:nth-of-type(1){ /* reduce mailsize font-size */
 	color:#999;
 	font-size: 0.8em;
 }
@@ -69,36 +76,36 @@ List view
 Message view
 */
 #conversation-view{
-	padding-top: 20px; /* reduce paddind above title */
+	padding-top: 20px; /* reduce padding above title */
 }
 
 .message-container{
-	border:none; /* remove border around message */
+	border: none; /* remove border around message */
 }
 
 .message-header{
 	padding-bottom: 0; /* reduce padding in msg header */
 }
 .message-contact-from{ /* remove "From:" prefix  */
-	display:none;
+	display: none;
 }
 
 .filterButton-container, /* remove buttons already in the top bar (i don't use column view) */
 .folderSelectorDropdown-container,
 .labelSelectorDropdown-container
 {
-	display:none;
+	display: none;
 }
 .dropdown-actions-nowrap-forward{
 	margin-left: 10px;
 }
 
 .recipients-summary{
-	font-size:0.85em;
+	font-size: 0.85em;
 	color: #555;
 }
 
-.toggleDetails{ /* smaller Show details link */
+.toggleDetails{ /* smaller "show details" link */
 	font-size: 0.8em;
 	color: #777;
 }
@@ -107,7 +114,7 @@ Message view
 	margin-top: 0;
 }
 
-#conversation-view .message .frame{
+#conversation-view .message .frame{ /* remove message left/right padding */
 	padding-left: 0;
 	padding-right: 0;
 }
@@ -117,9 +124,10 @@ Message view
 
 
 /* 
-Protonmail strip classes from "<p>" thus we can't fix formating from MS Outlook 
-idealy we would add ".MsoNormal{ margin: 0 }"
+Seems Protonmail strips classes from "<p>", and thus we can't fix formating from MS Outlook
+(MS Outlook use p for newlines, with a 0 margin)
+ideally we would add ".MsoNormal{ margin: 0 }"
 */
 .message-body-container  p{ 
-	margin: 0; /* will fix message from Outlook but may break some others messages (using non-styled "<p>")
+	margin: 0; /* will fix newlines spacing from Outlook but may break some others messages (using non-styled "<p>")
 }
